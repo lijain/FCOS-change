@@ -41,7 +41,7 @@ FCOS_imprv_R_101_FPN_2x | 73.93 |
 ### If you want to train with your own data
 This project use the json annotation file with COCO format.
 Make your directory layout like this:
-``
+```
 .
 └── trainset
     ├── images
