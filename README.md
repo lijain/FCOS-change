@@ -1,12 +1,5 @@
 # FCOS: Fully Convolutional One-Stage Object Detection
 
-This project hosts the code for implementing the FCOS algorithm for object detection, as presented in our paper:
-
-    FCOS: Fully Convolutional One-Stage Object Detection;
-    Zhi Tian, Chunhua Shen, Hao Chen, and Tong He;
-    In: Proc. Int. Conf. Computer Vision (ICCV), 2019.
-    arXiv preprint arXiv:1904.01355 
-
 The full paper is available at: [https://arxiv.org/abs/1904.01355](https://arxiv.org/abs/1904.01355). 
 
 
@@ -14,8 +7,7 @@ The full paper is available at: [https://arxiv.org/abs/1904.01355](https://arxiv
 
 
 ## Required hardware
-We use 8 Nvidia V100 GPUs. \
-But 4 1080Ti GPUs can also train a fully-fledged ResNet-50-FPN based FCOS since FCOS is memory-efficient.  
+We use 4 Nvidia p100 GPUs. \  
 
 ## Installation
 #### Testing-only installation 
@@ -42,14 +34,14 @@ For your convenience, we provide the following trained models (more models are c
 *All ResNe(x)t based models are trained with 16 images in a mini-batch and frozen batch normalization (i.e., consistent with models in [maskrcnn_benchmark](https://github.com/facebookresearch/maskrcnn-benchmark)).*
 
 Model | AP (minival) |
---- |:---:|:---:|:---:|:---:
+--- |:---:|
 FCOS_imprv_R_101_FPN_2x | 73.93 | 
 #Other tests to be tested
 
 ### If you want to train with your own data
 This project use the json annotation file with COCO format.
 Make your directory layout like this:
-```
+``
 .
 └── trainset
     ├── images
