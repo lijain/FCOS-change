@@ -1,0 +1,11 @@
+{
+  "original_root_dir": "/data/maq/DataSet/DOTA_train/dota_20200501",
+  "target_root_dir": "/data/maq/DataSet/DOTA_train/dota_20200501/trainval",
+  "sets": [
+    {
+      "name": "trainval",
+      "gap": 200,
+      "only_img": false
+    }
+  ]
+}

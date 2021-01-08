@@ -1,0 +1,39 @@
+OUTPUT_DIR: "model/20200709_dior"
+INPUT:
+  MIN_SIZE_TRAIN: (800,)
+  MAX_SIZE_TRAIN: 800
+  MIN_SIZE_TEST: 800
+  MAX_SIZE_TEST: 800
+
+MODEL:
+  META_ARCHITECTURE: "GeneralizedRCNN"
+  WEIGHT: "catalog://ImageNetPretrained/MSRA/R-50"
+  RPN_ONLY: True
+  FCOS_ON: True
+  BACKBONE:
+    CONV_BODY: "R-50-FPN-RETINANET"
+  RESNETS:
+    BACKBONE_OUT_CHANNELS: 256
+  RETINANET:
+    USE_C5: False # FCOS uses P5 instead of C5
+DATASETS:
+  TRAIN: ("dota_trainval_cut", "dota_test_cut")
+  TEST: ("dota_test_cut",)
+DATALOADER:
+  SIZE_DIVISIBILITY: 32
+SOLVER:
+  BASE_LR: 0.01
+  WEIGHT_DECAY: 0.0001
+  STEPS: (18000, 23000)
+  MAX_ITER: 30000   #11725张,/8为1500 30000位20轮
+  IMS_PER_BATCH: 8
+  WARMUP_METHOD: "constant"
+TEST:
+  IMS_PER_BATCH: 12
+#TEST:
+#  BBOX_AUG:
+#    ENABLED: False
+#    H_FLIP: True
+#    SCALES: (400, 500, 600, 700, 900, 1000, 1100, 1200)
+#    MAX_SIZE: 2000
+#    SCALE_H_FLIP: True
